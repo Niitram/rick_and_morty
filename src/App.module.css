@@ -1,0 +1,9 @@
+.App {
+   text-align: center;
+}
+.containerSearch{
+   background-image: url("./assets/imgs/bggalaxy.jpg");
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-bottom: 2px rgba(245, 245, 245, 0.413) solid;
+}

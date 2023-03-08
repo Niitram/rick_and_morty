@@ -1,0 +1,73 @@
+.cardContainer {
+    border: 1px solid black;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 8px solid rgb(0, 0, 0);
+    background-image: url("../../assets/imgs/bg-rym.jpg");
+}
+
+.containerButtonClose {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.675);
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+.buttonClose {
+    display: inline;
+    border-radius: 30%;
+    border: 1px solid black;
+    background-color: rgba(4, 5, 5, 0.614);
+    box-shadow: 0 4px 3px rgba(255, 254, 254, 0.122);
+    color: white;
+    cursor: pointer;
+}
+
+.buttonClose:hover {
+    background-color: white;
+    color: black;
+    scale: 1.2;
+}
+
+.name {
+    color: aliceblue;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.675);
+    padding-bottom: 5px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.img {
+    border-radius: 100%;
+    border: 2px black solid;
+    margin: 10px;
+    width: 200px;
+}
+
+.containerDescription {
+    border-top: 2px black solid;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgba(240, 255, 255, 0.675);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.description {
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+
+
+}
