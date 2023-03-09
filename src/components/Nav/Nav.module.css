@@ -1,0 +1,8 @@
+.Nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-image: url("../../assets/imgs/bgrym.jpg");
+    padding: 10px;
+    border-bottom: 2px rgba(245, 245, 245, 0.413) solid;
+}
