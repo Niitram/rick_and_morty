@@ -1,0 +1,9 @@
+.container{
+    background-color: black;
+    background-image: url("../../assets/imgs/rick\'s-fuck-you-image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    color: red;
+
+}

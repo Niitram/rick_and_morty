@@ -2,7 +2,9 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    min-height: 70vh;
     background-image: url("../../assets/imgs/bggalaxy.jpg");
+    background-position-y: bottom;
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 50px;

@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 90vh;
+    background-image: url("../../assets/imgs/RickVuelta.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+    background-position-x: left;
+    color: aliceblue;
+}
+.linkBack{
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color:rgba(0, 255, 255, 0);
+    color: aliceblue;
+    cursor:pointer;
+}
+.linkBack:hover{
+    border: 1px solid white;
+    scale: 1.3;
+}
+
+.containerButton{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerh2{
+    display: flex;
+    justify-content: center;
+}
+.h2{
+    align-self: center;
+    font-weight: 200;
+    color: aliceblue;
+}
+
+.containerDetails{
+    display: flex;
+    justify-content: space-around;
+}
+
+.h1{
+    font-family: 'Amatic SC', cursive;
+}
+
+
+.divBorderImg{
+    border: 5px solid rgb(249, 219, 163);
+    border-right: 5px solid rgba(249, 219, 163, 0.511) ;
+    border-bottom: 5px solid rgba(249, 219, 163, 0.511) ;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
+.image{
+    border: 5px black solid;
+    border-radius: 20px;
+    margin: 0;
+    padding: 0;
+}
