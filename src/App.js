@@ -2,15 +2,17 @@ import style from "./App.module.css"
 import Cards from "./components/Cards/Cards"
 import Nav from "./components/Nav/Nav"
 import { useState } from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Form, useLocation } from "react-router-dom"
 import About from "./Views/About/About"
 import Details from "./Views/Detail/Details"
 import NotFound from "./Views/NotFound/NotFound"
+import Formulario from "./Views/Form/Formulario"
 
 
 function App() {
 
   const [characters, setCharacters] = useState([])
+  const locationNow = useLocation()
 
   const onSearch = (id) => {
     /* const URL_BASE = "https://rickandmortyapi.com/api" */
@@ -36,7 +38,6 @@ function App() {
   }
 
   const onClose = (id) => {
-    console.log(characters);
     setCharacters(characters.filter(character => character.id !== id))
   }
 
@@ -45,9 +46,12 @@ function App() {
   return (
     <div className={style.App}>
       <div >
-        <Nav onSearch={onSearch} />
+        {
+          locationNow.pathname !== "/" && <Nav onSearch={onSearch} />
+        }
       </div>
       <Routes>
+        <Route path="/" element={<Formulario />} />
         <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Details />} />

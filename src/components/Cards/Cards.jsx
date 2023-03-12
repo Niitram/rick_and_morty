@@ -10,6 +10,7 @@ export default function Cards(props) {
                         image,
                         id})=>{
                         return <Card
+                           key={id}
                            name={name}
                            species={species}
                            gender={gender}

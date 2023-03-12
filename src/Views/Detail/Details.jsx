@@ -6,7 +6,6 @@ import { GoReply } from "react-icons/go"
 import styles from "../Detail/Details.module.css"
 
 function Details() {
-
     const {id}=useParams()
     const [character, setCharacter] = useState("")
     useEffect(() => {
@@ -33,8 +32,6 @@ function Details() {
             });
             return setCharacter({});
         }, [id]);
-
-        console.log(character);
         const {name, image, status,species, origin, gender} = character
 
     return (

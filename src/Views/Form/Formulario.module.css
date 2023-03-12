@@ -1,0 +1,56 @@
+
+.container{
+    display: flex;
+}
+
+.containerLeft{
+    width: 50%;
+    height: 100vh;
+    background-image: url("../../assets/imgs/bgrym.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-right: solid 3px rgb(0, 0, 0);
+}
+.containerRight{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #f3f3f3;
+    opacity: 1;
+    background-image: radial-gradient(#464758 1.1px, #f3f3f3 1.1px);
+    background-size: 22px 22px;
+}
+
+.containerForm{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(4, 3, 3, 0.952);
+}
+
+
+
+
+
+
+
+
+
+
+
+.danger{
+    border: 1px solid rgb(168, 7, 7);
+}
+.success{
+    border: 1px solid rgb(0, 171, 80);
+}
