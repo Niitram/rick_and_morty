@@ -1,8 +1,20 @@
 .Nav{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    background-image: url("../../assets/imgs/bgrym.jpg");
+    justify-content: space-around;
+    /* background-image: url("../../assets/imgs/bgrym.jpg"); */
+    background-color: aliceblue;
     padding: 10px;
     border-bottom: 2px rgba(245, 245, 245, 0.413) solid;
+}
+.image{
+    height: 50px;
+}
+.home{
+    color: rgb(23, 20, 17);
+    font-size: 30px;
+}
+.about{
+    color: rgb(9, 8, 7);
+    font-size: 30px;
 }

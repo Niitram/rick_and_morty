@@ -5,7 +5,10 @@ import {validateEmail , validatePassword} from './validation';
 import RaMSF from "../../assets/imgs/rickandmortysinfondo.png"
 
 
-function Formulario() {
+function Formulario({login}) {
+  const handleSubmit =()=>{
+    login(userData)
+  }
 
   const [userData, setUserData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({email: '', password: ''})
@@ -17,9 +20,8 @@ function Formulario() {
 
   const submitHandler =(e)=>{
     e.preventDefault()
-    alert("Todo bien")
+    handleSubmit()
   }
-
   return (
     <div className={styles.container}>
 

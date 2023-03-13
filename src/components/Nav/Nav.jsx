@@ -4,19 +4,24 @@ import styles from "./Nav.module.css"
 import { NavLink } from 'react-router-dom'
 import About from '../../Views/About/About'
 import Home from "../../Views/Home/Home"
+import RaMSF from "../../assets/imgs/rickandmortysinfondo.png"
 
 function Nav({onSearch}) {
     return (
       <nav className={styles.Nav}>
-        <NavLink to={"/home"}>
+        <div>
+          <img className={styles.image} src={RaMSF} alt="" />
+        </div>
+        <NavLink className={styles.home} to={"/home"}>
           <Home></Home>
         </NavLink>
-        <NavLink to={"/about"}>
-          <About></About>
+        <NavLink className={styles.about} to={"/about"}>
+          <About ></About>
         </NavLink>
+        <div>
         <SearchBar onSearch={onSearch}/>
+        </div>
       </nav>
-      
     )
 }
 
