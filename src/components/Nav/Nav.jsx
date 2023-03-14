@@ -15,6 +15,12 @@ function Nav({onSearch}) {
         <NavLink className={styles.home} to={"/home"}>
           <Home></Home>
         </NavLink>
+        <NavLink className={styles.home} to={"/favorites"}>
+          <span>Favorites</span>
+        </NavLink>
+        <NavLink className={styles.home} to={"/"}>
+          <span>LogOut</span>
+        </NavLink>
         <NavLink className={styles.about} to={"/about"}>
           <About ></About>
         </NavLink>

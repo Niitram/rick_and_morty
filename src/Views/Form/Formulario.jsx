@@ -31,7 +31,9 @@ function Formulario({login}) {
 
       <div className={styles.containerRight} >
         <div className={styles.containerForm}>
+
           <img src={RaMSF} alt="" />
+          
           <h3>Collectibles cards and Details</h3>
           <h2>Login</h2>
           <form onSubmit={submitHandler}>
@@ -44,7 +46,7 @@ function Formulario({login}) {
                 type="text" 
                 value={userData.email} 
               />
-              {errors.email && <span>Campo inválido</span>}
+              {errors.email && <span className={styles.dangerColor}> *Campo obligatorio</span>}
             </div>
 
             <div>
@@ -56,7 +58,7 @@ function Formulario({login}) {
                 type="text" 
                 value={userData.password} 
               />
-              {errors.password && <span>Campo inválido</span>}
+              {errors.password && <span className={styles.dangerColor}> *Campo obligatorio</span>}
             </div>
 
             <button type='submit'>Login</button>

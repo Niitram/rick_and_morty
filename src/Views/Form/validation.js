@@ -1,9 +1,5 @@
-/* const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/; */
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/;
-
-/* const passwordRegex = new RegExp("^(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,10})"); */
 const passwordRegex = /^(?=.*\d).{6,10}$/;
-
 
 export const validateEmail = (userData, setErrors) => {
     if (!userData.email) {
@@ -15,9 +11,6 @@ export const validateEmail = (userData, setErrors) => {
         }
         else { setErrors(prevState => { return { ...prevState, email: "Email inválido" } }) }
     }
-
-
-
 }
 
 export const validatePassword = (userData, setErrors) => {
