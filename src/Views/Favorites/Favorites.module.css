@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-height: 80vh;
+    background-image: url("../../assets/imgs/bgRick.jpg");
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

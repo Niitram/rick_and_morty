@@ -3,8 +3,9 @@ import { Link , useLocation } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { deleteFavorite, addFavorite, onDelete } from "../../redux/actions";
+/* import { Connect } from "react-redux"; */
 
-export default function Card({name,species,gender,image,id}) {
+function Card({name,species,gender,image,id /* , myFavorites , deleteFavorite , addFavorite */ }) {
 
    const dispatch = useDispatch()
    const locationNow = useLocation()
@@ -25,9 +26,13 @@ export default function Card({name,species,gender,image,id}) {
       if (isFav) {
          setIsFav(false)
          dispatch(deleteFavorite(id))
+         /* Con mathDispatchToProps seria asi porque dispatcha automaticamente y se agregarian las funciones a las props
+         adeleteFavorite(id) */
       }else{
          setIsFav(true)
          dispatch(addFavorite(char))
+         /* Con mathDispatchToProps seria asi porque dispatcha automaticamente
+         addFavorite(char) */
       }
    }
    return (
@@ -59,3 +64,26 @@ export default function Card({name,species,gender,image,id}) {
       </div>
    );
 }
+
+/*
+Tengo que agregar el estado a las props
+   const mapStateToProps =(state)=>{
+      return {
+         myFavorites: state.myFavorites,
+      };
+} */
+
+/* const mathDispatchToProps =(dispatch)=>{
+   return {
+      addFavorite: (character) => {
+         dispatch(addFavorite(character));
+      },
+      deleteFavorite: (id) => {
+         dispatch(deleteFavorite(id));
+      },
+   }
+} */
+/* export default connect(mapStateToProps, mathDispatchToProps)(Card) */
+
+
+export default Card

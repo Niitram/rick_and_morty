@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Card from '../../components/Card/Card'
+import styles from "./Favorites.module.css"
 
 function Favorites() {
 
@@ -8,7 +9,7 @@ function Favorites() {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             {myFavorites.map(({name,
                         species,
                         gender,
