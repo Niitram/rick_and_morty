@@ -41,7 +41,10 @@ export default function Card({name,species,gender,image,id}) {
                   )
                }
                { locationNow.pathname === "/home" && (
-                  <button className={style.buttonClose} onClick={()=>{dispatch(onDelete(id))}}>X</button>
+                  <button className={style.buttonClose} onClick={()=>{
+                     dispatch(deleteFavorite(id))
+                     dispatch(onDelete(id))
+                  }}>X</button>
                )}
             
          </div>

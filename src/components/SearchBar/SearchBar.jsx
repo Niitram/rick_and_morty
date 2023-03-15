@@ -16,7 +16,16 @@ export default function SearchBar() {
 
    return (
       <>
-         <input onChange={setValue} className={styles.input} type='search' placeholder="Search" />
+         <input onChange={setValue} className={styles.input} type='search' placeholder="Search" onKeyDown={(e)=>{
+            if (e.key === 'Enter') {
+               if (characters.find((char) => char.id === id)) {
+                  return alert("no encontrado o repetido")
+               }
+               dispatch(onSearch(id))
+            }
+            
+            
+         }}/>
          <button className={styles.button} onClick={()=>{
             if (characters.find((char) => char.id === id)) {
                return alert("no encontrado o repetido")
