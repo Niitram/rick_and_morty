@@ -7,7 +7,6 @@ import Home from "../../Views/Home/Home"
 import RaMSF from "../../assets/imgs/rickandmortysinfondo.png"
 import { useSelector } from 'react-redux'
 
-
 function Nav() {
 
   const myFavorites = useSelector(state=>state.myFavorites)
@@ -21,7 +20,7 @@ function Nav() {
           <Home></Home>
         </NavLink>
         {
-          myFavorites ?
+          myFavorites.length > 0 ?
             <NavLink className={styles.home} to={"/favorites"}>
               <span>Favorites</span>
             </NavLink>

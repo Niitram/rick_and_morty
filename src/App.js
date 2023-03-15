@@ -10,14 +10,7 @@ import Formulario from "./Views/Form/Formulario"
 import Favorites from "./Views/Favorites/Favorites"
 
 function App() {
-
-  const [characters, setCharacters] = useState([])
-
   const locationNow = useLocation()
-
-  const onClose = (id) => {
-    setCharacters(characters.filter(character => character.id !== id))
-  }
   /* logica de login */
   const navigate = useNavigate();
   const [access, setAccess] = useState(false)
@@ -46,7 +39,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Formulario login={login} />} />
-        <Route path="/home" element={<Cards onClose={onClose} />} />
+        <Route path="/home" element={<Cards />} />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:id" element={<Details />} />

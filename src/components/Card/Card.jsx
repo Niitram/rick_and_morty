@@ -1,16 +1,17 @@
 import style from "./Card.module.css"
-import { Link } from "react-router-dom";
+import { Link , useLocation } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { deleteFavorite, addFavorite } from "../../redux/actions";
+import { deleteFavorite, addFavorite, onDelete } from "../../redux/actions";
 
-export default function Card({name,species,gender,image,onClose,id}) {
+export default function Card({name,species,gender,image,id}) {
 
    const dispatch = useDispatch()
+   const locationNow = useLocation()
    const myFavorites = useSelector((state)=>state.myFavorites)
    const [isFav, setIsFav]= useState(false)
 
-   const char = {name,species,gender,image,onClose,id}
+   const char = {name,species,gender,image,id}
 
    useEffect(() => {
       myFavorites.forEach((fav) => {
@@ -29,7 +30,6 @@ export default function Card({name,species,gender,image,onClose,id}) {
          dispatch(addFavorite(char))
       }
    }
-
    return (
       <div className={style.cardContainer}>
          <div className={style.containerButtonClose}>
@@ -40,8 +40,8 @@ export default function Card({name,species,gender,image,onClose,id}) {
                      <button onClick={handleFavorite}>🤍</button>
                   )
                }
-               { onClose && (
-                  <button className={style.buttonClose} onClick={()=>{onClose(id)}}>X</button>
+               { locationNow.pathname === "/home" && (
+                  <button className={style.buttonClose} onClick={()=>{dispatch(onDelete(id))}}>X</button>
                )}
             
          </div>

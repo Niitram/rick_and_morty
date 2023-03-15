@@ -1,7 +1,4 @@
-import { ADD_FAVORITE, DELETE_FAVORITE, ADD_CHARACTERS } from "./actions"
-
-
-
+import { ADD_FAVORITE, DELETE_FAVORITE, ADD_CHARACTERS, DELETE_CHARACTER } from "./actions"
 
 
 const initialState = {
@@ -20,6 +17,8 @@ const rootReducer = (state = initialState, action) => {
         /* logica con personajes */
         case ADD_CHARACTERS:
             return { ...state, characters: [...state.characters, action.payload] }
+        case DELETE_CHARACTER:
+            return { ...state, characters: state.characters.filter(char => char.id !== action.payload) }
 
         default: return { ...state }
     }

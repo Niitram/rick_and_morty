@@ -1,6 +1,7 @@
 export const ADD_FAVORITE = "ADD_FAVORITE"
 export const DELETE_FAVORITE = "DELETE_FAVORITE"
 export const ADD_CHARACTERS = "ADD_CHARACTERS"
+export const DELETE_CHARACTER = "DELETE_CHARACTER"
 
 
 export const addFavorite = (char) => {
@@ -31,5 +32,8 @@ export const onSearch = (id) => {
                 }
             });
     }
+}
 
+export const onDelete = (id) => {
+    return { type: DELETE_CHARACTER, payload: id }
 }
