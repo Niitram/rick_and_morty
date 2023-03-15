@@ -5,8 +5,13 @@ import { NavLink } from 'react-router-dom'
 import About from '../../Views/About/About'
 import Home from "../../Views/Home/Home"
 import RaMSF from "../../assets/imgs/rickandmortysinfondo.png"
+import { useSelector } from 'react-redux'
 
-function Nav({onSearch}) {
+
+function Nav() {
+
+  const myFavorites = useSelector(state=>state.myFavorites)
+
     return (
       <nav className={styles.Nav}>
         <div>
@@ -15,9 +20,14 @@ function Nav({onSearch}) {
         <NavLink className={styles.home} to={"/home"}>
           <Home></Home>
         </NavLink>
-        <NavLink className={styles.home} to={"/favorites"}>
-          <span>Favorites</span>
-        </NavLink>
+        {
+          myFavorites ?
+            <NavLink className={styles.home} to={"/favorites"}>
+              <span>Favorites</span>
+            </NavLink>
+            :
+            <span className={styles.disabled}>Favorites</span>
+        }
         <NavLink className={styles.home} to={"/"}>
           <span>LogOut</span>
         </NavLink>
@@ -25,7 +35,7 @@ function Nav({onSearch}) {
           <About ></About>
         </NavLink>
         <div>
-        <SearchBar onSearch={onSearch}/>
+        <SearchBar/>
         </div>
       </nav>
     )

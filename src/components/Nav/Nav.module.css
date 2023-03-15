@@ -18,3 +18,7 @@
     color: rgb(9, 8, 7);
     font-size: 30px;
 }
+.disabled{
+    color: beige;
+    font-size: 30px;
+}

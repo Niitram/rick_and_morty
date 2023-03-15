@@ -1,8 +1,10 @@
 import Card from "../Card/Card";
 import styles from "./Cards.module.css"
+import { useSelector } from "react-redux";
 
 export default function Cards(props) {
-   const { characters, onClose } = props;
+   const characters = useSelector(state=>state.characters)
+   const { onClose } = props;
    return (<div className={styles.container}>
       {characters.map(({name,
                         species,

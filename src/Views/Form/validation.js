@@ -14,7 +14,6 @@ export const validateEmail = (userData, setErrors) => {
 }
 
 export const validatePassword = (userData, setErrors) => {
-    console.log(passwordRegex.test(userData.password));
     if (!userData.password) setErrors(prevState => { return { ...prevState, password: "Debe ingresar una contraseña" } })
     else {
         if (passwordRegex.test(userData.password)) setErrors(prevState => { return { ...prevState, password: "" } })
