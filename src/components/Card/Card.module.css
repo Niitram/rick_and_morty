@@ -21,7 +21,7 @@
 .containerButtonClose {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.675);
     border-top-right-radius: 16px;
@@ -42,6 +42,9 @@
     background-color: white;
     color: black;
     scale: 1.2;
+}
+.numberCard{
+    color: aliceblue;
 }
 
 .name {

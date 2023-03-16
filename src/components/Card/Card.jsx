@@ -38,6 +38,7 @@ function Card({name,species,gender,image,id /* , myFavorites , deleteFavorite , 
    return (
       <div className={style.cardContainer}>
          <div className={style.containerButtonClose}>
+            <div className={style.numberCard}>Card Nº{id}</div>
                         {
                   isFav ? (
                      <button onClick={handleFavorite}>❤️</button>
