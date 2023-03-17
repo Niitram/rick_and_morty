@@ -17,7 +17,7 @@ function Nav() {
           <img className={styles.image} src={RaMSF} alt="" />
         </div>
         <NavLink className={styles.home} to={"/home"}>
-          <Home></Home>
+          <span>Home</span>
         </NavLink>
         {
           myFavorites.length > 0 ?
@@ -31,7 +31,7 @@ function Nav() {
           <span>LogOut</span>
         </NavLink>
         <NavLink className={styles.about} to={"/about"}>
-          <About ></About>
+          <span>About</span>
         </NavLink>
         <div>
         <SearchBar/>

@@ -30,7 +30,15 @@ const rootReducer = (state = initialState, action) => {
             return { ...state, myFavorites: state.allCharacters.filter(char => char.gender === action.payload) }
 
         case ORDER:
-            return action.payload === ASCENDENTE ? { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charA.id - charB.id) } : { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charB.id - charA.id) }
+            const todosLosPersonajes = state.allCharacters
+            let aux = []
+            if (action.payload === ASCENDENTE) {
+                aux = todosLosPersonajes.sort((charA, charB) => charA.id - charB.id)
+            } else {
+                aux = todosLosPersonajes.sort((charA, charB) => charB.id - charA.id)
+            }
+            return { ...state, myFavorites: aux }
+        /* return action.payload === ASCENDENTE ? { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charA.id - charB.id) } : { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charB.id - charA.id) } */
 
         /* if (action.payload === ASCENDENTE) {
                 return { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charA.id - charB.id) }

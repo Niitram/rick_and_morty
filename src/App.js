@@ -8,6 +8,7 @@ import Details from "./Views/Detail/Details"
 import NotFound from "./Views/NotFound/NotFound"
 import Formulario from "./Views/Form/Formulario"
 import Favorites from "./Views/Favorites/Favorites"
+import Home from "./Views/Home/Home"
 
 function App() {
   const locationNow = useLocation()
@@ -39,7 +40,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Formulario login={login} />} />
-        <Route path="/home" element={<Cards />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:id" element={<Details />} />
