@@ -9,8 +9,10 @@ export const DESCENDENTE = "DESCENDENTE"
 export const SELECT_ALL = "SELECT_ALL"
 
 
+
 /* agrega a favoritos */
 export const addFavorite = (char) => {
+
     return {
         type: ADD_FAVORITE,
         payload: char
@@ -25,12 +27,11 @@ export const deleteFavorite = (id) => {
 }
 /* busca en personaje segun su id */
 export const onSearch = (id) => {
-    const URL_BASE = "https://be-a-rym.up.railway.app/api"
-    const API_KEY = "26929d3a59ee.86b7ab74c93bb6c2634b"
+    const URL_BASE = "http://localhost:3001/onsearch/"
 
 
     return function (dispatch) {
-        fetch(`${URL_BASE}/character/${id}?key=${API_KEY}`)
+        fetch(`${URL_BASE}${id}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.name) {
