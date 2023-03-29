@@ -9,18 +9,8 @@ function Details() {
     const {id}=useParams()
     const [character, setCharacter] = useState("")
     useEffect(() => {
-        const URL_BASE = "http://localhost:3001/rickandmorty/detail/"
-        /* const URL_BASE = "https://be-a-rym.up.railway.app/api"
-        const API_KEY = "26929d3a59ee.86b7ab74c93bb6c2634b" */
-
-            /* con axios */
-            /* axios(`${URL_BASE}/character/${id}?key=${API_KEY}`)
-                .then(response=>setCharacter(response.data)) */
-
-
-
-        /* fetch(`${URL_BASE}/character/${id}?key=${API_KEY}`) */
-        fetch(`${URL_BASE}/character/${id}`)
+        const URL_BASE = "http://localhost:3001/detail/"
+        fetch(`${URL_BASE}${id}`)
             .then((response) => response.json())
             .then((char) => {
                 if (char.name) {
@@ -34,6 +24,7 @@ function Details() {
             });
             return setCharacter({});
         }, [id]);
+
         const {name, image, status,species, origin, gender} = character
 
     return (

@@ -41,7 +41,6 @@ function Favorites() {
                 </select>
             </div>
             <div className={styles.containerCards}>
-                {console.log("Renderizando")}
                 {myFavorites.map(({name,
                             species,
                             gender,

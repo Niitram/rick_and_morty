@@ -1,5 +1,5 @@
 import { ADD_FAVORITE, DELETE_FAVORITE, ADD_CHARACTERS, DELETE_CHARACTER, FILTER, ORDER } from "./actions"
-import { DESCENDENTE, ASCENDENTE, SELECT_ALL } from "./actions"
+import { ASCENDENTE, SELECT_ALL } from "./actions"
 
 
 const initialState = {
@@ -27,7 +27,17 @@ const rootReducer = (state = initialState, action) => {
             if (action.payload === SELECT_ALL) {
                 return { ...state, myFavorites: state.allCharacters }
             }
-            return { ...state, myFavorites: state.allCharacters.filter(char => char.gender === action.payload) }
+            const allCharacters = [...state.allCharacters];
+            const filter = allCharacters.filter(character => character.gender === action.payload)
+            return {
+                ...state,
+                myFavorites: filter
+            }
+
+        /* if (action.payload === SELECT_ALL) {
+            return { ...state, myFavorites: state.allCharacters }
+        }
+        return { ...state, myFavorites: state.allCharacters.filter(char => char.gender === action.payload) } */
 
         case ORDER:
             const todosLosPersonajes = [...state.allCharacters]
@@ -38,18 +48,14 @@ const rootReducer = (state = initialState, action) => {
                 aux = todosLosPersonajes.sort((charA, charB) => charB.id - charA.id)
             }
             return { ...state, myFavorites: aux }
-        /* return action.payload === ASCENDENTE ? { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charA.id - charB.id) } : { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charB.id - charA.id) } */
-
-        /* if (action.payload === ASCENDENTE) {
-                return { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charA.id - charB.id) }
-            }
-            if (action.payload === DESCENDENTE) {
-                return { ...state, myFavorites: state.allCharacters.sort((charA, charB) => charB.id - charA.id) }
-            }
-            return { ...state } */
 
         /* logica con cards */
         case ADD_CHARACTERS:
+            /* Verifica si existe el personaje */
+            const existe = state.characters.filter(char => char.id === action.payload.id)
+            if (existe.length) {
+                return { ...state }
+            }
             return { ...state, characters: [...state.characters, action.payload] }
         case DELETE_CHARACTER:
             return { ...state, characters: state.characters.filter(char => char.id !== action.payload) }
