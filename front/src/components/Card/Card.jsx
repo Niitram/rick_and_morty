@@ -3,9 +3,8 @@ import { Link , useLocation } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { deleteFavorite, addFavorite, onDelete } from "../../redux/actions";
-/* import { Connect } from "react-redux"; */
 
-function Card({name,species,gender,image,id /* , myFavorites , deleteFavorite , addFavorite */ }) {
+function Card({name,species,gender,image,id }) {
 
    const dispatch = useDispatch()
    const locationNow = useLocation()
@@ -26,37 +25,32 @@ function Card({name,species,gender,image,id /* , myFavorites , deleteFavorite , 
       if (isFav) {
          setIsFav(false)
          dispatch(deleteFavorite(id))
-         /* Con mathDispatchToProps seria asi porque dispatcha automaticamente y se agregarian las funciones a las props
-         adeleteFavorite(id) */
       }else{
          setIsFav(true)
          dispatch(addFavorite(char))
-         /* Con mathDispatchToProps seria asi porque dispatcha automaticamente
-         addFavorite(char) */
       }
    }
    return (
       <div className={style.cardContainer}>
          <div className={style.containerButtonClose}>
             <div className={style.numberCard}>Card Nº{id}</div>
-                        {
-                  isFav ? (
+            {
+               isFav ? (
                      <button onClick={handleFavorite}>❤️</button>
                   ) : (
                      <button onClick={handleFavorite}>🤍</button>
                   )
-               }
-               { locationNow.pathname === "/home" && (
-                  <button className={style.buttonClose} onClick={()=>{
-                     dispatch(deleteFavorite(id))
-                     dispatch(onDelete(id))
-                  }}>X</button>
-               )}
-            
+            }
+            { locationNow.pathname === "/home" && (
+               <button className={style.buttonClose} onClick={()=>{
+                  dispatch(deleteFavorite(id))
+                  dispatch(onDelete(id))
+               }}>X</button>
+            )}
          </div>
-               <Link to={`/detail/${id}`}>
-                  <h2 className={style.name}>{name}</h2>
-               </Link>
+            <Link to={`/detail/${id}`}>
+               <h2 className={style.name}>{name}</h2>
+            </Link>
          <img className={style.img}  src={image} alt="" />
          <div className={style.containerDescription}>
             <span className={style.description}>{species}</span>

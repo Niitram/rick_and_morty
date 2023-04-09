@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom'
 function Favorites() {
 
     const myFavorites = useSelector((state)=>state.myFavorites)
+    console.log(myFavorites);
     const dispatch = useDispatch()
     const locationNow = useLocation()
     useEffect(() => {

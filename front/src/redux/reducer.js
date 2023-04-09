@@ -1,11 +1,12 @@
 import { ADD_FAVORITE, DELETE_FAVORITE, ADD_CHARACTERS, DELETE_CHARACTER, FILTER, ORDER } from "./actions"
-import { ASCENDENTE, SELECT_ALL } from "./actions"
+import { ASCENDENTE, SELECT_ALL, ADD_USER, DELETE_USER } from "./actions"
 
 
 const initialState = {
     myFavorites: [],
     characters: [],
     allCharacters: [],
+    userState: {}
 }
 
 
@@ -15,13 +16,15 @@ const rootReducer = (state = initialState, action) => {
         case ADD_FAVORITE:
             return {
                 ...state,
-                myFavorites: [...state.allCharacters, action.payload],
-                allCharacters: [...state.allCharacters, action.payload],
+                myFavorites: [...action.payload.favorites],
+                allCharacters: [...action.payload.favorites],
             }
-        /* case ADD_FAVORITE:
-            return { ...state, myFavorites: [...state.myFavorites, action.payload] } */
         case DELETE_FAVORITE:
-            return { ...state, myFavorites: state.myFavorites.filter(char => char.id !== action.payload) }
+            return {
+                ...state,
+                myFavorites: [...action.payload.favorites],
+                allCharacters: [...action.payload.favorites],
+            }
 
         case FILTER:
             if (action.payload === SELECT_ALL) {
@@ -60,6 +63,18 @@ const rootReducer = (state = initialState, action) => {
         case DELETE_CHARACTER:
             return { ...state, characters: state.characters.filter(char => char.id !== action.payload) }
 
+        /* Logica para el usuario */
+        /* Se agrega el usuario al estado global */
+        case ADD_USER:
+            return { ...state, userState: action.payload }
+        /* Se elimina el usuario del estado global */
+        case DELETE_USER:
+            return { ...state, userState: {} }
+
+
+
+
+        /* Si no coincide el action.type se retorna todo el state */
         default: return { ...state }
     }
 }

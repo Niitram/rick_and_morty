@@ -9,24 +9,22 @@ export const ORDER = "ORDER"
 export const ASCENDENTE = "ASCENDENTE"
 export const DESCENDENTE = "DESCENDENTE"
 export const SELECT_ALL = "SELECT_ALL"
+export const ADD_USER = "ADD_USER"
+export const DELETE_USER = "DELETE_USER"
 
 
 
 
 /* agrega a favoritos */
 export const addFavorite = (char) => {
-    const URL_BASE = "http://localhost:3001/rickandmorty/fav/"
+    const URL_BASE = "http://localhost:3001/rickandmorty/fav"
     return async function (dispatch) {
         const response = await axios.post(`${URL_BASE}`, char)
         dispatch({
             type: ADD_FAVORITE,
-            payload: char
+            payload: response.data
         })
     }
-    /* return {
-        type: ADD_FAVORITE,
-        payload: char
-    } */
 }
 /* Elimina los favoritos */
 export const deleteFavorite = (id) => {
@@ -35,14 +33,8 @@ export const deleteFavorite = (id) => {
         const response = await axios.delete(`${URL_BASE}${id}`)
         dispatch({
             type: DELETE_FAVORITE,
-            payload: id
+            payload: response.data
         })
-    }
-
-
-    return {
-        type: DELETE_FAVORITE,
-        payload: id
     }
 }
 /* busca en personaje segun su id */
@@ -71,4 +63,20 @@ export const filterCards = (gender) => {
 /* Ordena las tarjetas */
 export const orderCards = (id) => {
     return { type: ORDER, payload: id }
+}
+
+
+/* Logica de User */
+export const addUser = (user) => {
+    const URL = "http://localhost:3001/rickandmorty/login"
+    return async function (dispatch) {
+        const response = await axios.post(`${URL}`, user)
+        if (response.data) {
+            dispatch({
+                type: ADD_USER,
+                payload: response.data.user
+            })
+        }
+
+    }
 }

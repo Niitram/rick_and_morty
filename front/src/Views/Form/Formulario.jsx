@@ -3,11 +3,16 @@ import styles from "./Formulario.module.css";
 import { useState } from 'react';
 import {validateEmail , validatePassword} from './validation';
 import RaMSF from "../../assets/imgs/rickandmortysinfondo.png"
+import { addUser } from '../../redux/actions';
+import { useDispatch } from 'react-redux';
 
 
 function Formulario({login}) {
-  const handleSubmit =()=>{
-    login(userData)
+  const dispatch=useDispatch()
+
+  const handleSubmit =async()=>{
+    await dispatch(addUser(userData))
+    login()
   }
 
   const [userData, setUserData] = useState({ email: '', password: '' });

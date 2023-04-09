@@ -1,5 +1,4 @@
 import style from "./App.module.css"
-import Cards from "./components/Cards/Cards"
 import Nav from "./components/Nav/Nav"
 import { useState, useEffect } from "react"
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom"
@@ -9,17 +8,19 @@ import NotFound from "./Views/NotFound/NotFound"
 import Formulario from "./Views/Form/Formulario"
 import Favorites from "./Views/Favorites/Favorites"
 import Home from "./Views/Home/Home"
+import { useSelector } from "react-redux"
 
 function App() {
   const locationNow = useLocation()
   /* logica de login */
+  const userState = useSelector((state) => state.userState)
   const navigate = useNavigate();
   const [access, setAccess] = useState(false)
-  const username = "tuki@gmail.com"
-  const password = "asd1asd"
+  /* const username = "tuki@gmail.com"
+  const password = "asd1asd" */
 
-  const login = (_userData_) => {
-    if (_userData_.password === password && _userData_.email === username) {
+  const login = () => {
+    if (userState) {
       setAccess(true);
       navigate('/home');
     }
